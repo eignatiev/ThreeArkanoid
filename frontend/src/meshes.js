@@ -8,7 +8,7 @@ import {MeshLambertMaterial} from 'three/src/materials/MeshLambertMaterial'
 import {getBoxMinMax} from './tools'
 import {getRandomColor} from './tools'
 
-let ballRad = 0.6;
+let ballRad = 0.4;
 let ballGeometry = new SphereGeometry( ballRad, 20, 10 );
 let ballMaterial = new MeshLambertMaterial( { color: getRandomColor() } );
 let ball = new Mesh( ballGeometry, ballMaterial );
@@ -46,7 +46,7 @@ let plane = new Mesh( new PlaneGeometry( 200, 200, 18, 18 ),
 );
 plane.position.set(0, 0, startZ);
 
-let plankWidth = 8, plankHeight = 0.75, plankLength = 0.8;
+let plankWidth = 4, plankHeight = 0.75, plankLength = 0.8;
 let plankGeometry = new BoxGeometry( plankWidth, plankHeight, plankLength, 1 );
 let plankMaterial = new MeshLambertMaterial( { color: getRandomColor() } );
 let plank = new Mesh( plankGeometry, plankMaterial );

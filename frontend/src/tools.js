@@ -55,6 +55,5 @@ export function bounceFromPlank(plank, x, ball) {
         ball.moodX = ball.normalSpeed * (hitPercent - 50) / 100 * 2;
         ball.directionX = 1;
     }
-    ball.modX *= 0.6;
-    ball.moodY = ball.normalSpeed - ball.moodX;
+    ball.moodY = ball.normalSpeed;
 }

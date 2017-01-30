@@ -44,12 +44,13 @@ const game = {
         this.scene.add(plank);
         blocks.map((block) => this.scene.add(block));
         this.ballIsMoving = false;
-        ball.normalSpeed = 0.4;
+        ball.normalSpeed = 0.3;
         ball.directionY = 1;
         ball.directionX = 1;
         ball.moodX = 0;
         ball.moodY = ball.normalSpeed;
         this.addEventListeners();
+        this.score = 0;
     },
     render: function () {
         stats.update();
@@ -61,6 +62,9 @@ const game = {
             if(checkIntersections(ball, b)){
                 b.position.set(30, 0, -17);
                 getBoxMinMax(b);
+                this.score += 10;
+                console.clear();
+                console.log(`Your score: ${this.score}`)
             }
         }
         getBoxMinMax(plank);
