@@ -23,7 +23,7 @@ const startZ = -17;
 let blocksNumber = 99;
 for (let i = 0; i <= blocksNumber; i++) {
     let blockGeometry = new BoxGeometry( blockWidth, blockHeight, blockLength, 1 );
-    let blockMaterial = new MeshStandardMaterial( { color: getRandomColor()} );
+    let blockMaterial = new MeshLambertMaterial( { color: getRandomColor()} );
     let block = new Mesh( blockGeometry, blockMaterial );
     block.w = blockWidth;
     block.h = blockHeight;
@@ -38,7 +38,7 @@ for (let i = 0; i <= blocksNumber; i++) {
 }
 
 let plane = new Mesh( new PlaneGeometry( 200, 200, 18, 18 ),
-    new MeshStandardMaterial({
+    new MeshLambertMaterial({
         color: 0xffffff,
         transparent: true,
         opacity: 0.2
@@ -63,8 +63,12 @@ plank.getMinMax = function() {
 };
 
 let borderLength = 3, borderWidth = 2;
-let horBorderHeight = 49, verBorderHeight = 32;
-let borderMaterial = new MeshStandardMaterial( { color: getRandomColor() } );
+let horBorderHeight = 46.001, verBorderHeight = 32;
+let borderMaterial = new MeshLambertMaterial( {
+    color: getRandomColor(),
+    transparent: true,
+    opacity: 0.9
+} );
 let verBorderGeometry = new BoxGeometry( borderWidth, verBorderHeight, borderLength, 1 );
 let horBorderGeometry = new BoxGeometry( borderWidth, horBorderHeight, borderLength, 1 );
 let verBorderLeft = new Mesh( verBorderGeometry, borderMaterial );

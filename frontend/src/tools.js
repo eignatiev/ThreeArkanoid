@@ -47,6 +47,7 @@ export function bounceFromPlank(plank, x, ball) {
     let lengthPercent = length / 100;
     let hitPoint = length - (plank.maxX - x);
     let hitPercent = hitPoint / lengthPercent;
+
     if(hitPercent < 50) {
         ball.moodX = -(ball.normalSpeed * (hitPercent - 50) / 100 * 2);
         ball.directionX = -1;
@@ -55,5 +56,5 @@ export function bounceFromPlank(plank, x, ball) {
         ball.moodX = ball.normalSpeed * (hitPercent - 50) / 100 * 2;
         ball.directionX = 1;
     }
-    ball.moodY = ball.normalSpeed;
+    ball.moodY = Math.sqrt(ball.normalSpeed * ball.normalSpeed - ball.moodX * ball.moodX);
 }
