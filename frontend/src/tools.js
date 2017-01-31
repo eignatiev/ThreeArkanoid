@@ -24,7 +24,8 @@ export function checkIntersections(ball, block) {
     if(distance < ball.radius) {
         if      (x === block.maxX)  ball.directionX = 1;    // right
         else if (x === block.minX)  ball.directionX = -1;   // left
-        else if (y === block.maxY)  ball.directionY = 1;    // top
+
+        if (y === block.maxY)  ball.directionY = 1;    // top
         else if (y === block.minY)  ball.directionY = -1;   // bottom
         window.hitX = x;
         return true;
